@@ -14,6 +14,9 @@ const mockConfig = {
       QSTASH_CURRENT_SIGNING_KEY: 'sig_current',
       QSTASH_NEXT_SIGNING_KEY: 'sig_next',
     };
+    if (!(key in values)) {
+      throw new Error(`Missing config value for key: ${key}`);
+    }
     return values[key];
   }),
 };
